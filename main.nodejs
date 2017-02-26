@@ -1,0 +1,30 @@
+let productHunt = require("product-hunt");
+
+Promise.all([
+	productHunt.popular().daysAgo(0).exec(),
+	productHunt.popular().daysAgo(1).exec(),
+	productHunt.popular().daysAgo(2).exec(),
+	productHunt.popular().daysAgo(3).exec(),
+	productHunt.popular().daysAgo(4).exec(),
+	productHunt.popular().daysAgo(5).exec(),
+	productHunt.popular().daysAgo(6).exec(),
+	productHunt.popular().daysAgo(7).exec(),
+	productHunt.popular().daysAgo(8).exec(),
+	productHunt.popular().daysAgo(9).exec()
+]).then(function (productSets) {
+	return [].concat.apply([], productSets);
+}).then(function (allProducts) {
+	var firstProduct = Math.random() * allProducts.length >> 0;
+	var secondProduct = firstProduct;
+	while (secondProduct == firstProduct) {
+		secondProduct = Math.random() * allProducts.length >> 0;
+	}
+	
+	console.log(allProducts[firstProduct].name);
+	console.log("http://www.producthunt.com" + allProducts[firstProduct].url);
+	console.log();
+
+	console.log(allProducts[secondProduct].name);
+	console.log("http://www.producthunt.com" + allProducts[secondProduct].url);
+	console.log();
+});

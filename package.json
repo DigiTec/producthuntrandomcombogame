@@ -1,0 +1,11 @@
+{
+  "name": "producthuntrandomcombogame",
+  "version": "1.0.0",
+  "description": "Gets the last 10 days of product hunt popular items and picks two to mash up",
+  "dependencies": {
+    "product-hunt": "^0.5.0"
+  },
+  "devDependencies": {},
+  "author": "Justin Rogers",
+  "license": "MIT"
+}
